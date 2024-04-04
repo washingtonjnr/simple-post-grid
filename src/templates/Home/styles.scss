@@ -1,0 +1,38 @@
+.app {
+  text-align: center;
+
+  section {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #F2F2F2;
+
+    .line-title {
+      display: flex;
+      flex: 1 1 300px;
+      margin-bottom: 32px;
+      justify-content: space-between;
+      
+      h1 {
+        font-size: 40px;
+        margin-right: 32px;
+      }
+
+      input {
+        height: 40px;
+        // This make the input occupy the rest of the space  
+        flex-grow: 1;
+        max-width: 320px;
+      }
+
+      // TODO: turn into component
+      input {
+        outline: none;
+        padding: 0 12px;
+        font-size: 14px;
+        border-radius: 8px;
+        background-color: #FFF;
+        border: 1px solid #DDD;
+      }
+    }
+  }
+}

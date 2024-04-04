@@ -1,0 +1,26 @@
+.post {
+    padding: 8px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #FFF;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    h2 {
+        font-size: 18px;
+        margin: 4px 0 8px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
