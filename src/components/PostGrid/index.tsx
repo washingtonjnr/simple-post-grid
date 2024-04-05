@@ -1,15 +1,15 @@
 // types
-import { Post } from "../../@types/Post";
+import { PostType } from "../../@types/Post";
 // components
 import PostCard from "../PostCard";
 // styles
 import "./styles.scss";
 
-interface PostsProps {
-  posts: Post[];
+export type PostGridProps = {
+  posts: PostType[];
 }
 
-const PostGrid: React.FC<PostsProps> = ({ posts }) => {
+const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   return (
     <div className="post-grid">
       {posts.map(({ id, title, body, image }) => {

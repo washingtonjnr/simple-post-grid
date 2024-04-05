@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // types
-import { Post } from "../../@types/Post";
+import { PostType } from "../../@types/Post";
 // components
 import Header from "../../components/Header";
 import PostGrid from "../../components/PostGrid";
@@ -11,14 +11,15 @@ import { loadPosts } from "../../utils/load-posts";
 import "./styles.scss";
 
 const Home = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [allPosts, setAllPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
+  const [allPosts, setAllPosts] = useState<PostType[]>([]);
   //
   const [page, setPage] = useState<number>(1);
   const [maxPage, setMaxPage] = useState<number>(1);
-  const postsPerPage = 5;
   //
   const [searchTerm, setSearchTerm] = useState<string>("");
+  //
+  const postsPerPage = 10;
   //
   let timeout: NodeJS.Timeout | null = null;
 
@@ -37,8 +38,8 @@ const Home = () => {
   const loadMorePosts = (term: string) => {
     const nextPage = page + 1;
 
-    if (maxPage > nextPage) {
-      let newPosts: Post[] = [];
+    if (maxPage >= nextPage) {
+      let newPosts: PostType[] = [];
 
       newPosts = [...allPosts].slice(
         postsPerPage * page,
@@ -65,7 +66,7 @@ const Home = () => {
 
     timeout = setTimeout(function () {
       if(value) {
-        const filteredPosts: Post[] = [...allPosts].filter((post) =>
+        const filteredPosts: PostType[] = [...allPosts].filter((post) =>
           post.title.toLowerCase().includes(value.toLowerCase())
         );
     

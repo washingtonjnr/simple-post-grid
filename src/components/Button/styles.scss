@@ -1,0 +1,13 @@
+.btn-pattern {
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #000;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover {
+        opacity: .6;
+    }
+}

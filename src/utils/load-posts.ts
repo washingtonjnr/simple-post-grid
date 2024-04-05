@@ -1,8 +1,8 @@
-import { Post } from "../@types/Post";
+import { PostType } from "../@types/Post";
 
 const api = "https://jsonplaceholder.typicode.com"
 
-export const loadPosts = async (): Promise<Post[]> => {
+export const loadPosts = async (): Promise<PostType[]> => {
     const responsePosts = await fetch(api + "/posts")
     const responseImages = await fetch(api + "/photos")
     
