@@ -69,10 +69,10 @@ const Home = () => {
         const filteredPosts: PostType[] = [...allPosts].filter((post) =>
           post.title.toLowerCase().includes(value.toLowerCase())
         );
-    
+
         setPosts([...filteredPosts]);
       } else {
-        setPosts([...allPosts].slice(0, 5));
+        setPosts([...allPosts].slice(0, postsPerPage));
       }
     }, 1000);
   };

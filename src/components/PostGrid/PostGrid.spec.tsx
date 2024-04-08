@@ -6,6 +6,8 @@ import PostGrid, { PostGridProps } from ".";
 // types
 import { PostImageType, PostType } from "../../@types/Post";
 
+jest.mock("./styles.scss", () => ({}));
+
 const generatePostImageMock = (id: number) : PostImageType => {
   const image: PostImageType = {
     url: `img/img-${id}.jpg`,
@@ -24,14 +26,14 @@ const generatePostTypeMock = (id: number) : PostType => {
     body: "Test PostCard component",
     image: generatePostImageMock(id) ,
   }
- 
-  return post 
+
+  return post
 };
 
-const postsMock: PostType[] = [ 
-  generatePostTypeMock(1), 
-  generatePostTypeMock(2), 
-  generatePostTypeMock(3) 
+const postsMock: PostType[] = [
+  generatePostTypeMock(1),
+  generatePostTypeMock(2),
+  generatePostTypeMock(3)
 ];
 
 const postGridPropsMock: PostGridProps = {
@@ -39,6 +41,10 @@ const postGridPropsMock: PostGridProps = {
 }
 
 describe("<PostGrid />", () => {
+  it('is a dummy test', () => {
+    expect(1).toBe(1)
+  });
+
   it("should render posts", () => {
     render(<PostGrid { ...postGridPropsMock } />);
 
@@ -46,13 +52,13 @@ describe("<PostGrid />", () => {
 
     expect(postGridAllByRole("heading"))
       .toHaveLength(3)
-    
+
     expect(postGridAllByRole("img"))
       .toHaveLength(3)
-    
+
     expect(screen.getAllByText(/body/i))
       .toHaveLength(3)
-    
+
     expect(screen.getByRole("img", { name: /title 3/i }))
       .toHaveAttribute("src", "img/img-3.jpg")
   });

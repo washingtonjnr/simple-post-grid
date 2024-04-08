@@ -15,11 +15,11 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
       {posts.map(({ id, title, body, image }) => {
         return <PostCard
           key={id}
-          
-          id={id} 
-          title={title} 
-          body={body} 
-          image={image} 
+
+          id={id}
+          title={title}
+          body={body}
+          image={image}
         />
       })}
     </div>
