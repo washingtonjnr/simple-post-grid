@@ -1,10 +1,10 @@
 import { PostType } from "../@types/Post";
 
-const api = "https://jsonplaceholder.typicode.com";
+export const apiUrl = "https://jsonplaceholder.typicode.com";
 
 export const loadPosts = async (): Promise<PostType[]> => {
-  const responsePosts = await fetch(api + "/posts");
-  const responseImages = await fetch(api + "/photos");
+  const responsePosts = await fetch(apiUrl + "/posts");
+  const responseImages = await fetch(apiUrl + "/photos");
 
   if (!responsePosts.ok || !responseImages.ok)
     throw new Error("Failed to fetch");
